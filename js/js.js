@@ -76,8 +76,9 @@ function edit(){
 }
 form.addEventListener("submit",function (e){
     e.preventDefault(); 
-    if (form.dataset.type=="edit") return edit()
     if (value.value=="") {return};
+    if (form.dataset.type=="edit") return edit()
+    
     write();
    addevent();
 })
