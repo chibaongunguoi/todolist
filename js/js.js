@@ -21,7 +21,7 @@ else{
           <span><i class="fa-solid fa-pencil"></i></span>
         </a> 
         <hr />`
-          if (object[i][1]=="off")  {li.children[0].style.textDecoration="line-through" ;count+=1}
+          if (object[i][1]=="off")  {li.children[0].style.textDecoration="line-through 1.5px red" ;count+=1}
         objectmid[countelement]=object[i]
        ul.appendChild(li)
        addevent();
@@ -107,7 +107,7 @@ function change(){
     }
 else
 {
-    this.style.textDecoration="line-through";
+    this.style.textDecoration="line-through 1.5px red";
     count+=1;
     this.dataset.type="off"}
     updateshow();
