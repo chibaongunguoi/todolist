@@ -3,7 +3,7 @@ const value=document.querySelector("input")
 const ul=document.querySelector("ul")
 const show=document.getElementById("result")
 var target;
-localStorage.clear()
+//localStorage.clear()
 var count=0;
 var countelement=0;
 var object=JSON.parse(localStorage.getItem("user"))
