@@ -53,6 +53,8 @@ function write(){
 function edit(){
     target.innerHTML=`${value.value}<span><i class="fa-thin fa-trash-can" ></i></span>
     <span><i class="fa-solid fa-pencil"></i></span>`
+    object[target.dataset.n][0]=value.value
+    update()
     value.nextElementSibling.value="ADD TASK";
     form.dataset.type="add";
     value.value=""
