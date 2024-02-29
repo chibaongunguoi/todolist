@@ -5,9 +5,11 @@ const show=document.getElementById("result")
 var target;
 //localStorage.clear()
 var count=0;
-var countelement=0;
+var countelement=-1;
 var object=JSON.parse(localStorage.getItem("user"))
 var objectmid={}
+var current=-1;
+var pen=document.querySelectorAll("a span:last-child")
 if (object==null)
 object={}
 else{
@@ -73,12 +75,16 @@ function edit(){
             form.dataset.type="edit";
             target=this.parentElement
             })
+            for (i in pen) {
+                if (i=="entries") break
+            pen[i].style.display="block"    }    
+
 }
 form.addEventListener("submit",function (e){
     e.preventDefault(); 
     if (value.value=="") {return};
-    if (form.dataset.type=="edit") return edit()
-    
+    if (form.dataset.type=="edit") {
+        return edit()}
     write();
    addevent();
 })
@@ -120,10 +126,17 @@ function addevent(){
     this.parentElement.parentElement.remove()
     })
     c.addEventListener("click",function(){
+        current=this.parentElement.dataset.n;
         this.parentElement.removeEventListener("click",change);
         value.value=this.parentElement.innerText;
         value.nextElementSibling.value="EDIT TASK";
         form.dataset.type="edit";
         target=this.parentElement
+        this.previousElementSibling.style.display="none"
+        pen=document.querySelectorAll("a span:last-child")
+        for (i in pen) {
+            if (i=="entries") break
+        if (i==this.parentElement.dataset.n) continue
+        pen[i].style.display="none"    }
         })
  }
