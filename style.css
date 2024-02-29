@@ -58,7 +58,7 @@ a{
     color: white;
 }
 i{
-    font-family: "Font Awesome 6 Free";
+    font-family: "Font Awesome 6 Free" !important;
     color:#606266;
 }
 li:hover i{
