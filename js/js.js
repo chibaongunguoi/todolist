@@ -1,5 +1,5 @@
 const form=document.querySelector("form")
-const value=document.querySelector("input")
+var value=document.querySelector("input")
 const ul=document.querySelector("ul")
 const show=document.getElementById("result")
 var target;
@@ -49,9 +49,7 @@ function write(){
    ul.appendChild(li)
    value.value="";
 }
-
-
-function edit(){
+function edit(){ console.log(value.value.length)
     target.innerHTML=`${value.value}<span><i class="fa-thin fa-trash-can" ></i></span>
     <span><i class="fa-solid fa-pencil"></i></span>`
     object[target.dataset.n][0]=value.value
@@ -87,7 +85,9 @@ function edit(){
 }
 form.addEventListener("submit",function (e){
     e.preventDefault(); 
-    if (value.value=="") {return};
+    if (value.value==""||value.value.length>42) {value.value="";
+    target.children[0].style.display="block";
+    return};
     if (form.dataset.type=="edit") {
         return edit()}
     write();
@@ -113,7 +113,6 @@ else
     object[this.dataset.n][1]=this.dataset.type
     update();
 }
-
 function check(){
     this.addEventListener("click",change)
 }
@@ -142,6 +141,6 @@ function addevent(){
         for (i in pen) {
             if (i=="entries") break
         if (i==this.parentElement.dataset.n) continue
-        pen[i].style.display="none"    }
+        pen[i].style.display="none"}
         })
  }
