@@ -74,6 +74,12 @@ function edit(){
             value.nextElementSibling.value="EDIT TASK"
             form.dataset.type="edit";
             target=this.parentElement
+            this.previousElementSibling.style.display="none"
+        pen=document.querySelectorAll("a span:last-child")
+        for (i in pen) {
+            if (i=="entries") break
+        if (i==this.parentElement.dataset.n) continue
+        pen[i].style.display="none"    }
             })
             for (i in pen) {
                 if (i=="entries") break
